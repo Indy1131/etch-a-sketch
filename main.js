@@ -10,7 +10,6 @@ const form = document.querySelector("form");
 const input = document.querySelector("input");
 
 let currentN = 0;
-let color = "red";
 
 let painted = [];
 
@@ -95,13 +94,13 @@ function populateSquares(n) {
         element.addEventListener("mouseover", (e) => {
             if (mouseDown) {
                 painted.push(element);
-                element.style.backgroundColor = color;
+                element.style.backgroundColor = generateColor();
             }
         })
 
         element.addEventListener("mousedown", (e) => {
             painted.push(element);
-            element.style.backgroundColor = color;
+            element.style.backgroundColor = generateColor();
         })
 
         grid.appendChild(element);
@@ -114,6 +113,12 @@ function populateSquares(n) {
 
     input.value = n;
 }
+
+function generateColor() {
+    return "rgb(" + Math.floor(Math.random() * 255) + ", " + Math.floor(Math.random() * 255) + ", " + Math.floor(Math.random() * 255) + ")"
+}
+
+console.log(generateColor());
 
 
 
